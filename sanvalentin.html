@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿San Valentín conmigo? 💖</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .contenedor {
+            text-align: center;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        h1 {
+            color: #e91e63;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 40px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+        #btn-si {
+            background: #4CAF50;
+            color: white;
+        }
+        #btn-si:hover {
+            background: #45a049;
+            transform: scale(1.05);
+        }
+        #btn-no {
+            background: #f44336;
+            color: white;
+        }
+        #btn-no:hover {
+            background: #da190b;
+        }
+        .respuesta {
+            display: none;
+            margin-top: 30px;
+            font-size: 1.5em;
+            color: #4CAF50;
+        }
+        .contenedor-movimiento {
+            position: relative;
+            width: 300px;
+            height: 100px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>💕 San Valentín 💕</h1>
+        <p>¿Quieres pasar San Valentín conmigo? 😍</p>
+        <div class="contenedor-movimiento">
+            <button id="btn-si">¡Sí, claro! ❤️</button>
+            <button id="btn-no">No 😒</button>
+        </div>
+        <div id="respuesta-si" class="respuesta">¡Lo sabía! Te quiero mucho. Feliz San Valentín mi amor 💖✨</div>
+    </div>
+
+    <script>
+        const btnNo = document.getElementById('btn-no');
+        const btnSi = document.getElementById('btn-si');
+        const contenedor = document.querySelector('.contenedor-movimiento');
+        const respuesta = document.getElementById('respuesta-si');
+
+        // Función para mover el botón "No" aleatoriamente
+        function moverBoton() {
+            const maxX = contenedor.offsetWidth - btnNo.offsetWidth;
+            const maxY = contenedor.offsetHeight - btnNo.offsetHeight;
+            const nuevaX = Math.random() * maxX;
+            const nuevaY = Math.random() * maxY;
+            btnNo.style.position = 'absolute';
+            btnNo.style.left = nuevaX + 'px';
+            btnNo.style.top = nuevaY + 'px';
+        }
+
+        // Evento para "No": mueve el botón al hacer hover o click (infinito)
+        btnNo.addEventListener('mouseover', moverBoton);
+        btnNo.addEventListener('click', function(e) {
+            e.preventDefault();
+            moverBoton();
+        });
+
+        // Evento para "Sí": muestra la respuesta feliz
+        btnSi.addEventListener('click', function() {
+            document.querySelector('p').style.display = 'none';
+            document.querySelector('.contenedor-movimiento').style.display = 'none';
+            h1.innerHTML = '😍 ¡Genial! 😍';
+            respuesta.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
