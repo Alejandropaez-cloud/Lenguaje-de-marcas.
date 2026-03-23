@@ -1,0 +1,9 @@
+{
+  "nombre": "The Legend of Zelda: Breath of the Wild",
+  "plataforma": "Nintendo Switch",
+  "precio": 59.99,
+  "desarrollador": {
+    "nombre": "Nintendo EPD",
+    "pais": "Japón"
+  }
+}

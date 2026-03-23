@@ -1,0 +1,16 @@
+{
+  "centro": {
+    "nombre": "IES Las Fuentezuelas",
+    "ciudad": "Jaén",
+    "cursos": [
+      "DAM",
+      "DAW",
+      "ASIR"
+    ],
+    "estudiantes": {
+      "DAM": 25,
+      "DAW": 30,
+      "ASIR": 20
+    }
+  }
+}
